@@ -9,6 +9,41 @@
     <!-- Using Inter font for a modern look -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
+<div id="stars-container"></div>
+
+### B. JavaScript Star Generation (Right before `</body>`)
+
+Add this `<script>` block **right before** the closing `</body>` tag:
+
+```javascript
+<script>
+    // Star generation script
+    const starsContainer = document.getElementById('stars-container');
+    const numberOfStars = 150; // Adjust this number for more or fewer stars
+
+    for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+
+        // Set random position, size, and animation speed
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        
+        const size = Math.random() * 2; // Stars between 0 and 2px
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+
+        const duration = Math.random() * 3 + 2; // Animation duration between 2s and 5s
+        star.style.animationDuration = `${duration}s`;
+        
+        const delay = Math.random() * 5; // Start the animation at a random point in time
+        star.style.animationDelay = `${delay}s`;
+
+        starsContainer.appendChild(star);
+    }
+</script>
+
+Once you apply these changes to both `styles.css` and `index.html` and commit them to GitHub, your portfolio will have a beautiful, dark celestial gradient with randomly placed, slowly twinkling stars!
 <body>
 
     <!-- Header & Navigation -->
