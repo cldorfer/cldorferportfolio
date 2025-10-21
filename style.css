@@ -1,10 +1,10 @@
 /* --- Color Palette Variables --- */
 :root {
-    --color-cream: #F1EBE3; /* Soft, light background color */
-    --color-light-brown: #E0D3C7; /* Slightly deeper background/section color */
-    --color-dark-brown: #A16E4F; /* Main text, button, and primary accent color */
-    --color-text-dark: #333333; /* For most body text */
-    --color-accent: #784E34; /* Darker accent for hover/details */
+    --color-cream: #F4F7FF; /* Ethereal Icy White/Pale Blue for main surface areas */
+    --color-light-brown: #2C3E50; /* Deep Slate Blue / Navy for section backgrounds */
+    --color-dark-brown: #0A1931; /* Deepest Navy for body background */
+    --color-text-dark: #FFFFFF; /* Bright White for primary text */
+    --color-accent: #87CEEB; /* Sky Blue / Electric Blue for glowing accents and links */
     --font-family: 'Inter', sans-serif;
 }
 
@@ -19,7 +19,7 @@ body {
     font-family: var(--font-family);
     line-height: 1.6;
     color: var(--color-text-dark);
-    background-color: var(--color-cream); /* Main background is cream */
+    background-color: var(--color-dark-brown); /* Main background is now Deep Navy/Black */
 }
 
 /* Reusable Container for centralizing content */
@@ -31,9 +31,11 @@ body {
 
 /* --- Typography --- */
 h1, h2, h3, h4 {
-    color: var(--color-dark-brown);
+    color: var(--color-text-dark); /* White headings for max contrast */
     margin-bottom: 0.5em;
     line-height: 1.2;
+    /* Adding a subtle glow for the celestial/futuristic look */
+    text-shadow: 0 0 5px rgba(135, 206, 235, 0.5); 
 }
 
 h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
@@ -42,41 +44,47 @@ h4 { font-size: 1.2rem; }
 
 /* --- Links and Buttons --- */
 a {
-    color: var(--color-dark-brown);
+    color: var(--color-accent); /* Links are now Electric Blue */
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: var(--color-accent);
+    color: var(--color-cream);
+    /* Add subtle text shadow on hover for a flickering/glowing effect */
+    text-shadow: 0 0 8px var(--color-accent);
 }
 
 .button {
     display: inline-block;
-    background-color: var(--color-dark-brown);
-    color: var(--color-cream);
+    background-color: var(--color-accent); /* Button base is Electric Blue */
+    color: var(--color-dark-brown); /* Text is dark navy for contrast */
     padding: 12px 25px;
     border-radius: 8px;
     margin-top: 20px;
     font-weight: 600;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    /* Add a pronounced box shadow glow */
+    box-shadow: 0 0 15px rgba(135, 206, 235, 0.7); 
 }
 
 .button:hover {
-    background-color: var(--color-accent);
+    background-color: var(--color-cream); /* Creamy white hover */
+    color: var(--color-dark-brown);
     transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    /* Increase the glow effect on hover */
+    box-shadow: 0 0 20px var(--color-accent), 0 0 30px var(--color-accent);
 }
 
 /* --- Header Styling --- */
 header {
-    background-color: var(--color-light-brown); /* Light brown header */
+    background-color: var(--color-light-brown); /* Dark Slate Blue header */
     padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow blends into the dark background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
 }
 
 header .container {
@@ -106,27 +114,28 @@ section {
     text-align: center;
 }
 
-/* Specific background for the work/footer sections */
+/* Specific background for the work/footer sections (using the same dark slate blue) */
 #work, #contact {
     background-color: var(--color-light-brown);
 }
 
 /* Hero Section */
 #hero {
-    background-color: var(--color-cream);
+    background-color: var(--color-dark-brown); /* Darkest background */
     padding: 120px 0;
-    min-height: 80vh; /* Ensure it takes up most of the screen space on load */
+    min-height: 80vh;
     display: flex;
     align-items: center;
 }
 #hero .container {
-    padding-top: 50px; /* Adjust padding due to sticky header */
+    padding-top: 50px;
 }
 
 #hero p {
     max-width: 600px;
     margin: 15px auto 0;
     font-size: 1.15rem;
+    color: var(--color-cream); /* Pale white paragraph text */
 }
 
 /* Project Grid Layout */
@@ -139,17 +148,20 @@ section {
 }
 
 .project-card {
-    background-color: white; /* Project cards stand out in white */
+    background-color: var(--color-dark-brown); /* Project cards are dark */
+    border: 1px solid rgba(135, 206, 235, 0.2); /* Icy border */
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    /* Use the accent color for the glow effect on cards */
+    box-shadow: 0 0 10px rgba(135, 206, 235, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
     padding-bottom: 20px;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    /* Intensify the glow on hover */
+    box-shadow: 0 0 15px var(--color-accent);
 }
 
 .project-card img {
@@ -165,7 +177,7 @@ section {
 }
 
 .project-card p {
-    color: #666;
+    color: var(--color-cream); /* Pale cream paragraph text */
     font-size: 0.9rem;
     margin-bottom: 10px;
 }
@@ -179,18 +191,21 @@ section {
     max-width: 800px;
     margin: 20px auto;
     font-size: 1.1rem;
+    color: var(--color-cream);
 }
 
 /* --- Footer Styling --- */
 footer {
     padding: 40px 0;
+    border-top: 1px solid rgba(135, 206, 235, 0.1); /* Subtle glowing divider */
 }
 
 footer .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allows wrapping on small screens */
+    flex-wrap: wrap;
+    color: var(--color-cream); /* Footer text is cream */
 }
 
 .social-links a {
@@ -207,7 +222,7 @@ footer .container {
     nav ul {
         margin-top: 15px;
         justify-content: center;
-        padding: 0; /* Remove potential list padding */
+        padding: 0;
     }
     nav li {
         margin: 0 10px;
