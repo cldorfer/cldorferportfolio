@@ -19,7 +19,12 @@ body {
     font-family: var(--font-family);
     line-height: 1.6;
     color: var(--color-text-dark);
-    background-color: var(--color-dark-brown); /* Main background is now Deep Navy/Black */
+    /* * NEW: Celestial Gradient Background
+     * Fades from a deep violet-blue to a very dark navy.
+     */
+    background: linear-gradient(180deg, #1A1E35 0%, var(--color-dark-brown) 100%);
+    background-attachment: fixed; /* Ensures the gradient covers the whole viewport */
+    min-height: 100vh;
 }
 
 /* Reusable Container for centralizing content */
@@ -112,6 +117,7 @@ nav li {
 section {
     padding: 80px 0;
     text-align: center;
+    position: relative; /* Essential for containing the star elements */
 }
 
 /* Specific background for the work/footer sections (using the same dark slate blue) */
@@ -121,7 +127,8 @@ section {
 
 /* Hero Section */
 #hero {
-    background-color: var(--color-dark-brown); /* Darkest background */
+    /* Background is now defined by the body gradient */
+    background-color: transparent; 
     padding: 120px 0;
     min-height: 80vh;
     display: flex;
@@ -156,6 +163,7 @@ section {
     box-shadow: 0 0 10px rgba(135, 206, 235, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
     padding-bottom: 20px;
+    z-index: 5; /* Ensure content is above stars */
 }
 
 .project-card:hover {
@@ -210,6 +218,36 @@ footer .container {
 
 .social-links a {
     margin-left: 15px;
+}
+
+/* ---------------------------------------------------- */
+/* NEW: CELESTIAL STARS EFFECT STYLING                  */
+/* ---------------------------------------------------- */
+
+#stars-container {
+    position: fixed; /* Fixes stars to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through to the website */
+    z-index: 1; /* Puts stars below all other content (header, sections) */
+}
+
+.star {
+    position: absolute;
+    background-color: var(--color-cream);
+    border-radius: 50%;
+    opacity: 0;
+    /* Apply the custom animation */
+    animation: twinkle linear infinite; 
+}
+
+/* Define the twinkling animation: slow fading in and out */
+@keyframes twinkle {
+    0% { opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0; }
 }
 
 /* --- Responsive Adjustments (Mobile first) --- */
