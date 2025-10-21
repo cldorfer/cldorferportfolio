@@ -1,0 +1,231 @@
+/* --- Color Palette Variables --- */
+:root {
+    --color-cream: #F1EBE3; /* Soft, light background color */
+    --color-light-brown: #E0D3C7; /* Slightly deeper background/section color */
+    --color-dark-brown: #A16E4F; /* Main text, button, and primary accent color */
+    --color-text-dark: #333333; /* For most body text */
+    --color-accent: #784E34; /* Darker accent for hover/details */
+    --font-family: 'Inter', sans-serif;
+}
+
+/* --- Base Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-cream); /* Main background is cream */
+}
+
+/* Reusable Container for centralizing content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+    color: var(--color-dark-brown);
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: 1.2rem; }
+
+/* --- Links and Buttons --- */
+a {
+    color: var(--color-dark-brown);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--color-dark-brown);
+    color: var(--color-cream);
+    padding: 12px 25px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Header Styling --- */
+header {
+    background-color: var(--color-light-brown); /* Light brown header */
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin-left: 25px;
+}
+
+/* --- Section Layouts --- */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* Specific background for the work/footer sections */
+#work, #contact {
+    background-color: var(--color-light-brown);
+}
+
+/* Hero Section */
+#hero {
+    background-color: var(--color-cream);
+    padding: 120px 0;
+    min-height: 80vh; /* Ensure it takes up most of the screen space on load */
+    display: flex;
+    align-items: center;
+}
+#hero .container {
+    padding-top: 50px; /* Adjust padding due to sticky header */
+}
+
+#hero p {
+    max-width: 600px;
+    margin: 15px auto 0;
+    font-size: 1.15rem;
+}
+
+/* Project Grid Layout */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.project-card {
+    background-color: white; /* Project cards stand out in white */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding-bottom: 20px;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.project-card h4, .project-card p, .details-link {
+    padding: 0 20px;
+}
+
+.project-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.details-link {
+    font-weight: 600;
+}
+
+/* --- About Section --- */
+#about p {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 1.1rem;
+}
+
+/* --- Footer Styling --- */
+footer {
+    padding: 40px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+}
+
+.social-links a {
+    margin-left: 15px;
+}
+
+/* --- Responsive Adjustments (Mobile first) --- */
+@media (max-width: 768px) {
+    /* Header stacking on mobile */
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul {
+        margin-top: 15px;
+        justify-content: center;
+        padding: 0; /* Remove potential list padding */
+    }
+    nav li {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    /* Section padding adjustments */
+    section { padding: 50px 0; }
+    #hero { padding: 80px 0; }
+
+    /* Footer stacking on mobile */
+    footer .container {
+        flex-direction: column;
+    }
+    footer p {
+        margin-bottom: 15px;
+    }
+    .social-links {
+        margin-top: 10px;
+    }
+}
